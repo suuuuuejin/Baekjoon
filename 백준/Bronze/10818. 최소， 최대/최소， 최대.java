@@ -11,13 +11,15 @@ public class Main {
         int N = Integer.parseInt(br.readLine());
         StringBuilder sb = new StringBuilder();
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int[] arr = new int[N];
+        int max = -1000000;
+        int min = 1000000;
         for(int i=0; i<N; i++){
-            arr[i] = Integer.parseInt(st.nextToken());
+            int value = Integer.parseInt(st.nextToken());
+            if(value > max) max = value;
+            if(value < min) min = value;
         }
-        Arrays.sort(arr);
         
-        System.out.println(arr[0]+" "+arr[arr.length-1]);
+        System.out.println(min+" "+max);
 		
 	}
 }

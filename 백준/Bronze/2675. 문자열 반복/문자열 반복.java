@@ -10,12 +10,11 @@ public class Main {
         for(int i=0; i<T; i++){
             st = new StringTokenizer(br.readLine());
             int R = Integer.parseInt(st.nextToken());
-            String S = st.nextToken();
-            for(int k=0; k<S.length(); k++){
+            for(byte b: st.nextToken().getBytes())
                 for(int j=0; j<R; j++){
-                    System.out.print(S.charAt(k));
+                    System.out.print((char)b);
                 }
-            }
+            
             System.out.println();
         }
 	}

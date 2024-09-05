@@ -1,42 +1,42 @@
-import java.util.Scanner;
- 
+import java.io.*;
+import java.util.StringTokenizer;
+
 public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        StringTokenizer token;
+
+        int x_axis[] = new int[3]; 
+        int y_axis[] = new int[3]; 
+        
+        for(int i = 0; i < 3; i++) { 
+            token = new StringTokenizer(br.readLine());
+          
+            x_axis[i] = Integer.parseInt(token.nextToken()); 
+            y_axis[i] = Integer.parseInt(token.nextToken()); 
+        }
+        
+        br.close(); 
+
+        int x = 0; 
+        int y = 0;
+
+        if(x_axis[0] == x_axis[1]){ 
+            x = x_axis[2];
+        }else{ 
+            x = (x_axis[0] == x_axis[2]) ? (x_axis[1]) : (x_axis[0]);
+        }
  
-	public static void main(String[] args) {
- 
-		Scanner in = new Scanner(System.in);
- 
-		int[] coord_1 = { in.nextInt(), in.nextInt() };
-		int[] coord_2 = { in.nextInt(), in.nextInt() };	
-		int[] coord_3 = { in.nextInt(), in.nextInt() };	
- 
-		
-		in.close();
-		
-		int x;
-		int y;
- 
-		if (coord_1[0] == coord_2[0]) {	
-			x = coord_3[0];
-		}
-		else if (coord_1[0] == coord_3[0]) {
-			x = coord_2[0];
-		}
-		else {
-			x = coord_1[0];
-		}
- 
-		if (coord_1[1] == coord_2[1]) {
-			y = coord_3[1];
-		}
-		else if (coord_1[1] == coord_3[1]) {
-			y = coord_2[1];
-		}
-		else {
-			y = coord_1[1];
-		}
-		
-		System.out.println(x + " " + y);
-		
-	}
+        if(y_axis[0] == y_axis[1]){
+            y = y_axis[2];
+        }else{
+            y = (y_axis[0] == y_axis[2]) ? (y_axis[1]) : (y_axis[0]);
+        }
+
+        bw.write(x + " " + y);
+        bw.flush();
+        bw.close();
+    }
 }

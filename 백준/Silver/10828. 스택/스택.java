@@ -7,7 +7,7 @@ public class Main{
         int N = Integer.parseInt(br.readLine());
         StringTokenizer st;
         ArrayList<Integer> list = new ArrayList<>();
-
+        StringBuilder sb = new StringBuilder();
         for(int i=0; i<N; i++){
             st = new StringTokenizer(br.readLine());
             String command = st.nextToken();
@@ -18,16 +18,18 @@ public class Main{
             switch(command){
                 case "push": list.add(num);
                     break;
-                case "pop" : System.out.println(list.size() == 0 ?-1:list.get(list.size()-1));
+                case "pop" : sb.append(list.size() == 0 ?-1:list.get(list.size()-1)).append("\n");
                     if(list.size() != 0) list.remove(list.size()-1);
                     break;
-                case "size": System.out.println(list.size());
+                case "size": sb.append(list.size()).append("\n");
                     break;
-                case "empty": System.out.println(list.size() == 0?1:0);
+                case "empty": sb.append(list.size() == 0?1:0).append("\n");
                     break;
-                case "top": System.out.println(list.size() == 0?-1:list.get(list.size()-1));
+                case "top": sb.append(list.size() == 0?-1:list.get(list.size()-1)).append("\n");
                     break;
             }
         }
+        System.out.println(sb.toString());
     }
 }
+
